@@ -1,0 +1,39 @@
+import pandas as pd
+
+data = {'color' : ['blue','green','yellow'],
+'number' : [10,20,30]}
+
+frame = pd.DataFrame(data)
+print(frame)
+
+print('iterando em linha: ')
+for i in frame.index:
+    print(i, end='\t')
+
+    for obj in frame.loc[i]:
+        print(obj, end="\t")
+    print("")
+
+print('iterando em coluna: ')
+
+for col in frame.columns:
+    print(col, end='\t')
+
+    for obj in frame[col]:
+
+        print(obj, end="\t")
+    print("")
+    
+## OUTPUT
+
+#             color  number
+#        0    blue      10
+#        1   green      20
+#        2  yellow      30
+#        iterando em linha:
+#        0        blue    10
+#        1        green   20
+#        2        yellow          30
+#        iterando em coluna
+#        color    blue   green   yellow
+#        number   10     20      30

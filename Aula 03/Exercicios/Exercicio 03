@@ -1,0 +1,52 @@
+# Slide 56
+
+import pandas as pd
+import numpy as np
+from sqlalchemy import create_engine
+
+# carregar o arquivo num dataframe pandas,
+
+
+column_names = [
+                "Sex", 
+                "Length", 
+                "Diameter", 
+                "Height", 
+                "Whole weight", 
+                "Shucked weight", 
+                "Viscera weight", 
+                "Shell weight", 
+                "Rings"
+                ]
+
+frame = pd.read_csv("abalone.data", names=column_names)
+print(frame)
+
+# apresentar os dados estatisticos descritivos básicos
+
+print(frame.describe())
+
+
+# - criar um outro dataframe apenas com as 3 primeiras colunas
+
+dataframe2 = {
+    'Sex' : frame['Sex'],
+    'Length' : frame['Length'],
+    'Diameter' : frame['Diameter']
+}
+
+frame2 = pd.DataFrame(dataframe2)
+
+print(frame2)
+
+# apos isso salvar o resultado numa tabela SQLite3
+
+sqlite_db = create_engine('sqlite:///exercicio03.db')
+
+frame2.to_sql('Abalone',engine)
+
+# apos isso salvar o resultado numa tabela MySQL/PostgreSQL
+
+# postgresql_db = create_engine('postgresql://matheus:nintendo90@localhost:5432/lppcd')
+# 
+# df.to_sql('Abalone', engine)

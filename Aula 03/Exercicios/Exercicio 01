@@ -1,0 +1,18 @@
+# Slide 16
+
+import pandas as pd
+import numpy as np
+
+mydict = {'red': 2000, 'blue': 1000, 'yellow': 500, 'orange': 1000}
+
+
+print(f'Indices: {[x for x in mydict.keys()]}')
+print(f'Segundo valor usando o indice numerico: {list(mydict.values())[1]}')
+print(f'Segundo valor usando o indice textual: {mydict["blue"]}')
+
+
+# OUTPUT
+
+# Indices: ['red', 'blue', 'yellow', 'orange']
+# Segundo valor usando o indice numerico: 1000
+# Segundo valor usando o indice textual: 1000
